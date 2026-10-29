@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoàng Minh Thắng | IT Helpdesk & Support Portfolio</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --badge-bg: #f1f5f9;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    header.navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 48px 0 36px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-page) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: #065f46;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+      border: 1px solid #a7f3d0;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--badge-bg);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 48px 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--badge-bg);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .timeline-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .timeline-role {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .timeline-company {
+      font-size: 0.95rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+      background: var(--badge-bg);
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    .timeline-bullets {
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Troubleshooting Scenarios */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 20px;
+    }
+
+    .scenario-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .scenario-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .scenario-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .scenario-step {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .scenario-step strong {
+      color: var(--text-main);
+      min-width: 65px;
+    }
+
+    /* Education */
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .edu-school {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .edu-degree {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .edu-time {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      background: #ffffff;
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        Hoàng Minh Thắng
+        <span class="logo-badge">IT Support</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#experience">Kinh nghiệm</a></li>
+        <li><a href="#scenarios">Nghiệp vụ xử lý lỗi</a></li>
+        <li><a href="#education">Học vấn</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="status-pill">
+          <span class="status-dot"></span> Sẵn sàng nhận việc ngay (IT Helpdesk / End-User Support)
+        </div>
+        <h1>Hoàng Minh Thắng</h1>
+        <div class="hero-subtitle">IT Helpdesk & End-User Support Technician</div>
+        <p class="hero-desc">
+          Sinh viên năm cuối ngành Công nghệ Thông tin với hơn 1 năm kinh nghiệm thực tế về hỗ trợ kỹ thuật người dùng cuối, quản trị phần mềm doanh nghiệp và chẩn đoán sự cố hệ thống trên môi trường Windows & macOS.
+        </p>
+        <div class="hero-contact">
+          <div class="contact-item">
+            📍 <span>Biên Hòa, Đồng Nai / TP. Hồ Chí Minh</span>
+          </div>
+          <div class="contact-item">
+            📞 <a href="tel:0354384061">035-438-4061</a>
+          </div>
+          <div class="contact-item">
+            ✉️ <a href="mailto:hoangminhthang10092004@gmail.com">hoangminhthang10092004@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            🔗 <a href="https://github.com/1150080116-hue" target="_blank">github.com/1150080116-hue</a>
+          </div>
+        </div>
+        <div class="btn-group">
+          <a href="CV_HoangMinhThang.pdf" download class="btn btn-primary">
+            📄 Tải CV (Bản PDF)
+          </a>
+          <a href="mailto:hoangminhthang10092004@gmail.com" class="btn btn-secondary">
+            ✉️ Gửi Email ứng tuyển
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Technical Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">🛠️ Năng lực kỹ thuật cốt lõi</h2>
+      <p class="section-desc">Bộ kỹ năng thực tế bám sát nhu cầu vận hành hạ tầng IT doanh nghiệp</p>
+
+      <div class="skills-grid">
+        <!-- OS & Multi-platform -->
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h3>Hệ điều hành & Máy trạm</h3>
+          <p>Cài đặt, tối ưu hóa và xử lý sự cố chuyên sâu trên máy tính người dùng cuối.</p>
+          <div class="pill-list">
+            <span class="pill">Windows 10/11</span>
+            <span class="pill">macOS (Ventura/Sonoma)</span>
+            <span class="pill">OS Imaging & Cloning</span>
+            <span class="pill">Registry & Event Viewer</span>
+            <span class="pill">Driver Diagnostics</span>
+          </div>
+        </div>
+
+        <!-- Business Software -->
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Phần mềm doanh nghiệp</h3>
+          <p>Quản trị tài khoản, phân quyền và cấu hình bộ ứng dụng văn phòng tiêu chuẩn.</p>
+          <div class="pill-list">
+            <span class="pill">Microsoft 365 (Word, Excel)</span>
+            <span class="pill">Outlook & Exchange</span>
+            <span class="pill">Google Workspace (Gmail, Drive)</span>
+            <span class="pill">OneDrive / Cloud Sync</span>
+            <span class="pill">User Onboarding</span>
+          </div>
+        </div>
+
+        <!-- Networking -->
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Mạng máy tính & Hạ tầng LAN</h3>
+          <p>Kiến thức nền tảng và kỹ năng xử lý lỗi kết nối mạng nội bộ công ty.</p>
+          <div class="pill-list">
+            <span class="pill">TCP/IP</span>
+            <span class="pill">DNS Configuration</span>
+            <span class="pill">DHCP Allocation</span>
+            <span class="pill">Wi-Fi Router & AP</span>
+            <span class="pill">LAN Cabling (RJ45)</span>
+            <span class="pill">Network Printer Sharing</span>
+          </div>
+        </div>
+
+        <!-- Hardware & Maintenance -->
+        <div class="card">
+          <div class="card-icon">🔧</div>
+          <h3>Phần cứng & Bảo dưỡng</h3>
+          <p>Lắp ráp, kiểm tra lỗi linh kiện, vệ sinh và thay thế thiết bị nhanh chóng.</p>
+          <div class="pill-list">
+            <span class="pill">Nâng cấp RAM / SSD</span>
+            <span class="pill">Thay thế linh kiện PC/Laptop</span>
+            <span class="pill">Vệ sinh & Tra keo tản nhiệt</span>
+            <span class="pill">Máy in & Scanner</span>
+            <span class="pill">Sao lưu dữ liệu (Backup)</span>
+          </div>
+        </div>
+
+        <!-- IT Support & Operations -->
+        <div class="card">
+          <div class="card-icon">🎧</div>
+          <h3>Nghiệp vụ IT Helpdesk</h3>
+          <p>Quy trình tiếp nhận, phân loại và xử lý ticket hỗ trợ kỹ thuật tại chỗ và từ xa.</p>
+          <div class="pill-list">
+            <span class="pill">Tier-1 Support</span>
+            <span class="pill">Remote Desktop (AnyDesk, TeamViewer)</span>
+            <span class="pill">SLA & Ticket Handling</span>
+            <span class="pill">Viết hướng dẫn sử dụng (User Guide)</span>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Kỹ năng mềm & Giao tiếp</h3>
+          <p>Thái độ điềm tĩnh, hướng dẫn dễ hiểu cho nhân sự không am hiểu kỹ thuật.</p>
+          <div class="pill-list">
+            <span class="pill">Tiếng Anh công việc</span>
+            <span class="pill">Giao tiếp người dùng</span>
+            <span class="pill">Tư duy giải quyết vấn đề</span>
+            <span class="pill">Làm việc nhóm & Trách nhiệm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section id="experience" style="background: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <h2 class="section-title">💼 Kinh nghiệm làm việc thực tế</h2>
+      <p class="section-desc">Kinh nghiệm hỗ trợ kỹ thuật người dùng và vận hành hạ tầng máy trạm</p>
+
+      <div class="timeline">
+        <!-- Role 1 -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Junior IT Support Technician</div>
+              <div class="timeline-company">Freelance & Part-time</div>
+            </div>
+            <div class="timeline-date">09/2024 - Hiện tại (~1 năm)</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Cung cấp dịch vụ hỗ trợ kỹ thuật và chẩn đoán sự cố phần cứng, phần mềm trên môi trường Windows 10/11 và macOS cho người dùng cá nhân và văn phòng quy mô nhỏ.</li>
+            <li>Cài đặt, cấu hình và xử lý các lỗi thường gặp trên MS Office Suite (Word, Excel, Outlook) và Google Workspace (Gmail, Drive sync, quản lý quyền truy cập).</li>
+            <li>Xử lý lỗi mạng cơ bản (Wi-Fi, TCP/IP, DNS, DHCP); thực hiện nâng cấp linh kiện máy tính (RAM, SSD), cài đặt hệ điều hành và vệ sinh bảo trì thiết bị định kỳ.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">IT Support Fresher</div>
+              <div class="timeline-company">Công ty Công nghệ NINA (NINA Technology Company)</div>
+            </div>
+            <div class="timeline-date">05/2025 - 07/2025 (3 tháng)</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Đảm nhận vai trò hỗ trợ IT Helpdesk cấp độ 1 (Tier-1) cho hơn 50 nhân viên văn phòng; xử lý các yêu cầu (ticket) hàng ngày về lỗi hệ điều hành, phần mềm công việc và thiết bị ngoại vi.</li>
+            <li>Chuẩn bị máy trạm (Windows & macOS) cho nhân sự mới (onboarding), cài đặt các phần mềm doanh nghiệp tiêu chuẩn và thiết lập tài khoản đăng nhập.</li>
+            <li>Hỗ trợ quản trị viên mạng kiểm tra kết nối LAN văn phòng, bấm dây mạng RJ45, gán địa chỉ IP và xử lý lỗi chia sẻ máy in mạng nội bộ.</li>
+            <li>Giải thích và hướng dẫn kỹ thuật kiên nhẫn, rõ ràng cho nhân sự các phòng ban; chủ động phối hợp với đội ngũ IT bằng tiếng Anh và tiếng Việt để xử lý các ticket nâng cao.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Scenarios / Troubleshooting Case Studies -->
+  <section id="scenarios">
+    <div class="container">
+      <h2 class="section-title">🔍 Tình huống xử lý sự cố thực tế</h2>
+      <p class="section-desc">Minh chứng cho tư duy logic và kỹ năng giải quyết vấn đề độc lập</p>
+
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="scenario-tag">Sự cố Mạng (Network)</div>
+          <h4>Máy tính báo lỗi "No Internet Access" / Không vào được mạng</h4>
+          <div class="scenario-step"><strong>Hiện tượng:</strong> Máy kết nối Wi-Fi/dây LAN nhưng không tải được trang web hoặc báo lỗi DNS.</div>
+          <div class="scenario-step"><strong>Cách xử lý:</strong> Kiểm tra trạng thái IP bằng `ipconfig /all`. Nếu nhận IP dải APIPA (169.254.x.x) $\rightarrow$ chạy `ipconfig /release` và `ipconfig /renew` để xin lại IP từ DHCP. Kiểm tra ping Default Gateway và 8.8.8.8. Nếu ping IP được mà không duyệt web được $\rightarrow$ gán lại DNS 8.8.8.8 / 1.1.1.1 và chạy `ipconfig /flushdns`.</div>
+        </div>
+
+        <div class="scenario-card">
+          <div class="scenario-tag">Sự cố Phần mềm & Email</div>
+          <h4>Outlook không gửi/nhận thư hoặc Google Workspace bị lỗi xác thực</h4>
+          <div class="scenario-step"><strong>Hiện tượng:</strong> Outlook báo lỗi "Disconnected", liên tục yêu cầu nhập mật khẩu hoặc hộp thư bị đầy.</div>
+          <div class="scenario-step"><strong>Cách xử lý:</strong> Kiểm tra kết nối mạng và tình trạng tài khoản trên cổng Webmail. Xóa thông tin đăng nhập cũ trong Windows Credential Manager. Khởi động Outlook ở chế độ Safe Mode (`outlook.exe /safe`) để kiểm tra xung đột Add-in. Nén file dữ liệu `.ost/.pst` hoặc tạo mới Outlook Profile để tái đồng bộ.</div>
+        </div>
+
+        <div class="scenario-card">
+          <div class="scenario-tag">Sự cố Phần cứng & Hệ thống</div>
+          <h4>Máy tính bị treo đơ, màn hình xanh (BSOD) hoặc khởi động chậm</h4>
+          <div class="scenario-step"><strong>Hiện tượng:</strong> Máy tính khởi động không lên Windows, xuất hiện mã lỗi BSOD hoặc quạt quay mạnh kèm tiếng bíp.</div>
+          <div class="scenario-step"><strong>Cách xử lý:</strong> Đọc mã lỗi (Stop Code) và phân tích file Minidump. Vệ sinh và gắn lại chân RAM. Kiểm tra tình trạng sức khỏe ổ cứng (CrystalDiskInfo). Sử dụng công cụ lệnh `sfc /scannow` và `DISM` để sửa file hệ thống hỏng. Nếu ổ cứng lỗi $\rightarrow$ tư vấn thay thế SSD mới và cài đặt lại bản quyền hệ điều hành.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" style="background: #ffffff; border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <h2 class="section-title">🎓 Trình độ học vấn & Bằng cấp</h2>
+      <p class="section-desc">Nền tảng đào tạo chính quy về Công nghệ Thông tin</p>
+
+      <div class="edu-card">
+        <div>
+          <div class="edu-school">Trường Đại học Tài nguyên và Môi trường TP. Hồ Chí Minh (HCMUNRE)</div>
+          <div class="edu-degree">Cử nhân Công nghệ Thông tin - Tin học Môi trường (Đang học năm cuối)</div>
+        </div>
+        <div class="edu-time">09/2022 - Hiện tại</div>
+      </div>
+
+      <div class="edu-card">
+        <div>
+          <div class="edu-school">Trường THPT Trấn Biên / Trần Đại Nghĩa, Đồng Nai</div>
+          <div class="edu-degree">Bằng Tốt nghiệp Trung học Phổ thông</div>
+        </div>
+        <div class="edu-time">09/2019 - 06/2022</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="font-weight: 600; color: var(--text-main); margin-bottom: 4px;">Hoàng Minh Thắng — IT Helpdesk & End-User Support</p>
+      <p>Số điện thoại: 035-438-4061 | Email: hoangminhthang10092004@gmail.com | Biên Hòa, Đồng Nai</p>
+    </div>
+  </footer>
+
+</body>
+</html>
